@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', _ => {
   const chatInput = document.querySelector('.chatBox_input')
-  const submitButton = document.querySelector('.chatBox_submit')
   const socket = new WebSocket('ws://localhost:3000/api/messages')
 
   socket.addEventListener('open', e => {
@@ -11,10 +10,12 @@ document.addEventListener('DOMContentLoaded', _ => {
     console.log('they sent us back this: ', e.data)
   })
 
-  submitButton.addEventListener('click', e => {
-    e.preventDefault()
-    const msg = chatInput.value
-    socket.send(moldMessage(1, msg))
+  chatInput.addEventListener('keypress', e => {
+    if (e.which === 13) {
+      const msg = chatInput.value
+      chatInput.value = ''
+      socket.send(moldMessage(1, msg))
+    }
   })
 })
 

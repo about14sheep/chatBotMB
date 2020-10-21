@@ -1,0 +1,34 @@
+.chatBox_container {
+  position: relative;
+  margin: auto;
+  padding-top: 20px;
+  width: 75vw;
+  height: 75vh;
+  background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  color: white;
+  font: 1.3rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #C8C8C8;
+}
+
+.chatBox_container::after {
+  content: " > hello I am a god you are a loser m8";
+  position: absolute;
+  padding-top: 20px;
+  top: 0;
+  left: 0;
+  width: 75vw;
+  height: 75vh;
+  background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+.chatBox_terminal_output {
+  
+}
