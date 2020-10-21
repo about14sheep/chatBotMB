@@ -1,7 +1,7 @@
 const { Botkit } = require('botkit');
 const { WebAdapter } = require('botbuilder-adapter-web');
 
-const welcome = require('./modules/welcome')
+const options = require('./modules/options')
 
 const adapter = new WebAdapter();
 
@@ -10,5 +10,5 @@ const controller = new Botkit({
 })
 
 controller.ready(_ => {
-  welcome(controller)
+  options(controller)
 })
