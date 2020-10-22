@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { sendMessage } from '../App'
+import { sendMessage, refresh } from '../App'
 
 const Options = ({ options }) => {
   const [choices, setChoices] = useState([])
@@ -19,7 +19,8 @@ const Options = ({ options }) => {
   }, [selection])
 
   const handleClick = e => {
-    setSelection(e.target.lastChild.textContent)
+    const val = e.target.lastChild.textContent
+    val.toLowerCase() === 'back' ? refresh() : setSelection(val)
   }
 
   return (
