@@ -1,4 +1,4 @@
-.chatBox_container {
+.terminal_window {
   position: relative;
   margin: auto;
   padding-top: 20px;
@@ -13,8 +13,7 @@
   text-shadow: 0 0 5px #C8C8C8;
 }
 
-.chatBox_container::after {
-  content: " > hello I am a god you are a loser m8";
+.terminal_window::after {
   position: absolute;
   padding-top: 20px;
   top: 0;

@@ -1,12 +1,29 @@
-import React from 'react';
-import './main.css'
-function App() {
+import React, { useState } from 'react';
+import { Terminal } from './components/Terminal';
+
+const socket = new WebSocket('ws://localhost:3000/api/messages')
+
+export const App = _ => {
+  const [msg, setMsg] = useState([])
+  socket.addEventListener('open', e => {
+    sendMessage(JSON.stringify({ type: 'START_UP' }), 'message')
+  })
+
+  socket.addEventListener('message', e => {
+    const data = JSON.parse(e.data)
+    setMsg(data)
+  })
+
   return (
-    <div className="chatBox_container">
-      <div className="chatBox_terminal_input"></div>
-      <div className="chatBox_terminal_output"></div>
-    </div>
+    <Terminal msg={msg} />
   );
 }
 
-export default App;
+const moldMessage = (text) => JSON.stringify({ user: 1, text: text, type: 'message' })
+
+export const sendMessage = (text) => {
+  socket.send(moldMessage(text))
+}
+
+
+
