@@ -6,7 +6,7 @@ const Options = ({ options }) => {
   const [selection, setSelection] = useState('')
 
   useEffect(_ => {
-    const optionElements = options.map((el, i) => <div key={i} onClick={handleClick} ><span>{i}) </span><span>{el}</span></div>)
+    const optionElements = options.map((el, i) => <div key={i} onClick={handleClick} ><span>{i + 1}) </span><span>{el}</span></div>)
     if (optionElements) {
       setChoices(optionElements)
     }
